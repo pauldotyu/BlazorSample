@@ -30,6 +30,12 @@ namespace BlazorSample.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.Configure<JwtBearerOptions>(
+                JwtBearerDefaults.AuthenticationScheme, options =>
+                {
+                    options.TokenValidationParameters.NameClaimType = "name";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

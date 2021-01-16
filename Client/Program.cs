@@ -27,7 +27,8 @@ namespace BlazorSample.Client
             builder.Services.AddMsalAuthentication(options =>
             {
                 builder.Configuration.Bind("AzureAd", options.ProviderOptions.Authentication);
-                options.ProviderOptions.DefaultAccessTokenScopes.Add("api://api://7a20a84d-1aa4-4f34-8c6e-383227018b32/API.Access");
+                options.ProviderOptions.DefaultAccessTokenScopes.Add("api://7a20a84d-1aa4-4f34-8c6e-383227018b32/API.Access");
+                options.ProviderOptions.LoginMode = "redirect";
             });
 
             await builder.Build().RunAsync();
